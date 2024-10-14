@@ -1,17 +1,19 @@
-const initState = { counter: 0 };
+import { createSlice } from "@reduxjs/toolkit";
 
-const reducer = (state = initState, action) => {
-  switch (action.type) {
-    case "increaseCounter":
-      const { step } = action.payload;
-      return { ...state, counter: state.counter + step };
-    case "setCounter":
-      return { ...state, counter: action.payload.value };
-    case "resetCounter":
-      return { ...state, counter: 0 };
-    default:
-      return state;
-  }
-};
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: { counter: 0 },
+  reducers: {
+    increase(state) {
+      state.counter += 2;
+    },
+    set(state, action) {
+      state.counter = action.payload;
+    },
+    reset(state) {
+      state.counter = 0;
+    },
+  },
+});
 
-export default reducer;
+export default counterSlice;

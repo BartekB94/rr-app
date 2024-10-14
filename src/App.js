@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { connect } from "react-redux";
-import { increaseCounterAction, resetCounter } from "./actions/counter";
+import { actions } from "./store";
 import Form from "./components/Form";
 
 class App extends React.Component {
@@ -29,8 +29,8 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapActionToProps = {
-  onIncrease: increaseCounterAction,
-  onReset: resetCounter,
+  onIncrease: actions.increase,
+  onReset: actions.reset,
 };
 
 export default connect(mapStateToProps, mapActionToProps)(App);
