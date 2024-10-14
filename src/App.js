@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { increaseCounterAction, resetCounter } from "./actions/counter";
+import Form from "./components/Form";
 
 class App extends React.Component {
   handleIncrease = (event) => {
@@ -17,6 +18,7 @@ class App extends React.Component {
         {counter}
         <button onClick={this.handleIncrease}>increase</button>
         <button onClick={this.handleReset}>reset</button>
+        <Form />
       </section>
     );
   }
